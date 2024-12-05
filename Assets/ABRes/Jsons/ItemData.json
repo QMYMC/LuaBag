@@ -1,0 +1,8 @@
+[
+{"Id":1,"Name":"弓箭","Icon":"Icon_2","Type":1,"Tips":"远程武器"},
+{"Id":2,"Name":"手套","Icon":"Icon_1","Type":1,"Tips":"增加防御"},
+{"Id":3,"Name":"红药","Icon":"Icon_4","Type":2,"Tips":"血量药水"},
+{"Id":4,"Name":"蓝药","Icon":"Icon_3","Type":2,"Tips":"魔法药水"},
+{"Id":5,"Name":"红宝石","Icon":"Icon_5","Type":3,"Tips":"合成高级道具的必备之物"},
+{"Id":6,"Name":"蓝宝石","Icon":"Icon_6","Type":3,"Tips":"合成高级道具的必备之物"}
+]

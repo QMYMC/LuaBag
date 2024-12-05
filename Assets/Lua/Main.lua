@@ -1,0 +1,10 @@
+print("准备就绪！")
+require("InitClass")
+require("ItemData")
+require("PlayerData")
+
+require("BasePanel")
+require("MainPanel")
+require("BagPanel")
+require("ItemGrid")
+MainPanel:ShowMe("MainPanel")
