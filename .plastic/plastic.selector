@@ -1,4 +1,3 @@
 repository "LearnLuaBag@tj_wechat_os_qy0wftgb_is_fu0htblpscypk@cloud.cn"
   path "/"
-    br "/main"
-    co "/main"
+    smartbranch "/main" changeset "7"

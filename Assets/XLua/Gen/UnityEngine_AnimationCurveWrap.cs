@@ -21,17 +21,15 @@ namespace XLua.CSObjectWrap
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
 			System.Type type = typeof(UnityEngine.AnimationCurve);
-			Utils.BeginObjectRegister(type, L, translator, 0, 9, 4, 3);
+			Utils.BeginObjectRegister(type, L, translator, 0, 7, 4, 3);
 			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Evaluate", _m_Evaluate);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "AddKey", _m_AddKey);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "MoveKey", _m_MoveKey);
-			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ClearKeys", _m_ClearKeys);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "RemoveKey", _m_RemoveKey);
-			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetHashCode", _m_GetHashCode);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SmoothTangents", _m_SmoothTangents);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Equals", _m_Equals);
-			Utils.RegisterFunc(L, Utils.METHOD_IDX, "CopyFrom", _m_CopyFrom);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetHashCode", _m_GetHashCode);
 			
 			
 			Utils.RegisterFunc(L, Utils.GETTER_IDX, "keys", _g_get_keys);
@@ -229,33 +227,6 @@ namespace XLua.CSObjectWrap
         }
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_ClearKeys(RealStatePtr L)
-        {
-		    try {
-            
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-                UnityEngine.AnimationCurve gen_to_be_invoked = (UnityEngine.AnimationCurve)translator.FastGetCSObj(L, 1);
-            
-            
-                
-                {
-                    
-                    gen_to_be_invoked.ClearKeys(  );
-                    
-                    
-                    
-                    return 0;
-                }
-                
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_RemoveKey(RealStatePtr L)
         {
 		    try {
@@ -275,34 +246,6 @@ namespace XLua.CSObjectWrap
                     
                     
                     return 0;
-                }
-                
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_GetHashCode(RealStatePtr L)
-        {
-		    try {
-            
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-                UnityEngine.AnimationCurve gen_to_be_invoked = (UnityEngine.AnimationCurve)translator.FastGetCSObj(L, 1);
-            
-            
-                
-                {
-                    
-                        var gen_ret = gen_to_be_invoked.GetHashCode(  );
-                        LuaAPI.xlua_pushinteger(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
                 }
                 
             } catch(System.Exception gen_e) {
@@ -474,7 +417,7 @@ namespace XLua.CSObjectWrap
         }
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_CopyFrom(RealStatePtr L)
+        static int _m_GetHashCode(RealStatePtr L)
         {
 		    try {
             
@@ -486,13 +429,13 @@ namespace XLua.CSObjectWrap
             
                 
                 {
-                    UnityEngine.AnimationCurve _other = (UnityEngine.AnimationCurve)translator.GetObject(L, 2, typeof(UnityEngine.AnimationCurve));
                     
-                    gen_to_be_invoked.CopyFrom( _other );
+                        var gen_ret = gen_to_be_invoked.GetHashCode(  );
+                        LuaAPI.xlua_pushinteger(L, gen_ret);
                     
                     
                     
-                    return 0;
+                    return 1;
                 }
                 
             } catch(System.Exception gen_e) {

@@ -31,7 +31,7 @@ namespace XLua.CSObjectWrap
 			Utils.EndObjectRegister(type, L, translator, null, null,
 			    null, null, null);
 
-		    Utils.BeginClassRegister(type, L, __CreateInstance, 12, 0, 0);
+		    Utils.BeginClassRegister(type, L, __CreateInstance, 8, 0, 0);
 			Utils.RegisterFunc(L, Utils.CLS_IDX, "FindObjectsOfTypeAll", _m_FindObjectsOfTypeAll_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "Load", _m_Load_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "LoadAsync", _m_LoadAsync_xlua_st_);
@@ -39,10 +39,6 @@ namespace XLua.CSObjectWrap
             Utils.RegisterFunc(L, Utils.CLS_IDX, "GetBuiltinResource", _m_GetBuiltinResource_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "UnloadAsset", _m_UnloadAsset_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "UnloadUnusedAssets", _m_UnloadUnusedAssets_xlua_st_);
-            Utils.RegisterFunc(L, Utils.CLS_IDX, "InstanceIDToObject", _m_InstanceIDToObject_xlua_st_);
-            Utils.RegisterFunc(L, Utils.CLS_IDX, "InstanceIDToObjectList", _m_InstanceIDToObjectList_xlua_st_);
-            Utils.RegisterFunc(L, Utils.CLS_IDX, "InstanceIDIsValid", _m_InstanceIDIsValid_xlua_st_);
-            Utils.RegisterFunc(L, Utils.CLS_IDX, "InstanceIDsToValidArray", _m_InstanceIDsToValidArray_xlua_st_);
             
 			
             
@@ -315,127 +311,6 @@ namespace XLua.CSObjectWrap
             } catch(System.Exception gen_e) {
                 return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
             }
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_InstanceIDToObject_xlua_st_(RealStatePtr L)
-        {
-		    try {
-            
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-            
-                
-                {
-                    int _instanceID = LuaAPI.xlua_tointeger(L, 1);
-                    
-                        var gen_ret = UnityEngine.Resources.InstanceIDToObject( _instanceID );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_InstanceIDToObjectList_xlua_st_(RealStatePtr L)
-        {
-		    try {
-            
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-            
-                
-                {
-                    Unity.Collections.NativeArray<int> _instanceIDs;translator.Get(L, 1, out _instanceIDs);
-                    System.Collections.Generic.List<UnityEngine.Object> _objects = (System.Collections.Generic.List<UnityEngine.Object>)translator.GetObject(L, 2, typeof(System.Collections.Generic.List<UnityEngine.Object>));
-                    
-                    UnityEngine.Resources.InstanceIDToObjectList( _instanceIDs, _objects );
-                    
-                    
-                    
-                    return 0;
-                }
-                
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_InstanceIDIsValid_xlua_st_(RealStatePtr L)
-        {
-		    try {
-            
-            
-            
-                
-                {
-                    int _instanceId = LuaAPI.xlua_tointeger(L, 1);
-                    
-                        var gen_ret = UnityEngine.Resources.InstanceIDIsValid( _instanceId );
-                        LuaAPI.lua_pushboolean(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_InstanceIDsToValidArray_xlua_st_(RealStatePtr L)
-        {
-		    try {
-            
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-            
-			    int gen_param_count = LuaAPI.lua_gettop(L);
-            
-                if(gen_param_count == 2&& translator.Assignable<Unity.Collections.NativeArray<int>>(L, 1)&& translator.Assignable<Unity.Collections.NativeArray<bool>>(L, 2)) 
-                {
-                    Unity.Collections.NativeArray<int> _instanceIDs;translator.Get(L, 1, out _instanceIDs);
-                    Unity.Collections.NativeArray<bool> _validArray;translator.Get(L, 2, out _validArray);
-                    
-                    UnityEngine.Resources.InstanceIDsToValidArray( _instanceIDs, _validArray );
-                    
-                    
-                    
-                    return 0;
-                }
-                if(gen_param_count == 2&& translator.Assignable<System.ReadOnlySpan<int>>(L, 1)&& translator.Assignable<System.Span<bool>>(L, 2)) 
-                {
-                    System.ReadOnlySpan<int> _instanceIDs;translator.Get(L, 1, out _instanceIDs);
-                    System.Span<bool> _validArray;translator.Get(L, 2, out _validArray);
-                    
-                    UnityEngine.Resources.InstanceIDsToValidArray( _instanceIDs, _validArray );
-                    
-                    
-                    
-                    return 0;
-                }
-                
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            
-            return LuaAPI.luaL_error(L, "invalid arguments to UnityEngine.Resources.InstanceIDsToValidArray!");
             
         }
         

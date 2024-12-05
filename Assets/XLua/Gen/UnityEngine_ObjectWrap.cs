@@ -40,17 +40,13 @@ namespace XLua.CSObjectWrap
 			Utils.EndObjectRegister(type, L, translator, null, null,
 			    null, null, null);
 
-		    Utils.BeginClassRegister(type, L, __CreateInstance, 11, 0, 0);
-			Utils.RegisterFunc(L, Utils.CLS_IDX, "InstantiateAsync", _m_InstantiateAsync_xlua_st_);
-            Utils.RegisterFunc(L, Utils.CLS_IDX, "Instantiate", _m_Instantiate_xlua_st_);
+		    Utils.BeginClassRegister(type, L, __CreateInstance, 7, 0, 0);
+			Utils.RegisterFunc(L, Utils.CLS_IDX, "Instantiate", _m_Instantiate_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "Destroy", _m_Destroy_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "DestroyImmediate", _m_DestroyImmediate_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "FindObjectsOfType", _m_FindObjectsOfType_xlua_st_);
-            Utils.RegisterFunc(L, Utils.CLS_IDX, "FindObjectsByType", _m_FindObjectsByType_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "DontDestroyOnLoad", _m_DontDestroyOnLoad_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "FindObjectOfType", _m_FindObjectOfType_xlua_st_);
-            Utils.RegisterFunc(L, Utils.CLS_IDX, "FindFirstObjectByType", _m_FindFirstObjectByType_xlua_st_);
-            Utils.RegisterFunc(L, Utils.CLS_IDX, "FindAnyObjectByType", _m_FindAnyObjectByType_xlua_st_);
             
 			
             
@@ -202,159 +198,6 @@ namespace XLua.CSObjectWrap
         }
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_InstantiateAsync_xlua_st_(RealStatePtr L)
-        {
-		    try {
-            
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-            
-			    int gen_param_count = LuaAPI.lua_gettop(L);
-            
-                if(gen_param_count == 1&& translator.Assignable<UnityEngine.Object>(L, 1)) 
-                {
-                    UnityEngine.Object _original = (UnityEngine.Object)translator.GetObject(L, 1, typeof(UnityEngine.Object));
-                    
-                        var gen_ret = UnityEngine.Object.InstantiateAsync( _original );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                if(gen_param_count == 2&& translator.Assignable<UnityEngine.Object>(L, 1)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 2)) 
-                {
-                    UnityEngine.Object _original = (UnityEngine.Object)translator.GetObject(L, 1, typeof(UnityEngine.Object));
-                    int _count = LuaAPI.xlua_tointeger(L, 2);
-                    
-                        var gen_ret = UnityEngine.Object.InstantiateAsync( _original, _count );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                if(gen_param_count == 2&& translator.Assignable<UnityEngine.Object>(L, 1)&& translator.Assignable<UnityEngine.Transform>(L, 2)) 
-                {
-                    UnityEngine.Object _original = (UnityEngine.Object)translator.GetObject(L, 1, typeof(UnityEngine.Object));
-                    UnityEngine.Transform _parent = (UnityEngine.Transform)translator.GetObject(L, 2, typeof(UnityEngine.Transform));
-                    
-                        var gen_ret = UnityEngine.Object.InstantiateAsync( _original, _parent );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                if(gen_param_count == 3&& translator.Assignable<UnityEngine.Object>(L, 1)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 2)&& translator.Assignable<UnityEngine.Transform>(L, 3)) 
-                {
-                    UnityEngine.Object _original = (UnityEngine.Object)translator.GetObject(L, 1, typeof(UnityEngine.Object));
-                    int _count = LuaAPI.xlua_tointeger(L, 2);
-                    UnityEngine.Transform _parent = (UnityEngine.Transform)translator.GetObject(L, 3, typeof(UnityEngine.Transform));
-                    
-                        var gen_ret = UnityEngine.Object.InstantiateAsync( _original, _count, _parent );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                if(gen_param_count == 3&& translator.Assignable<UnityEngine.Object>(L, 1)&& translator.Assignable<UnityEngine.Vector3>(L, 2)&& translator.Assignable<UnityEngine.Quaternion>(L, 3)) 
-                {
-                    UnityEngine.Object _original = (UnityEngine.Object)translator.GetObject(L, 1, typeof(UnityEngine.Object));
-                    UnityEngine.Vector3 _position;translator.Get(L, 2, out _position);
-                    UnityEngine.Quaternion _rotation;translator.Get(L, 3, out _rotation);
-                    
-                        var gen_ret = UnityEngine.Object.InstantiateAsync( _original, _position, _rotation );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                if(gen_param_count == 4&& translator.Assignable<UnityEngine.Object>(L, 1)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 2)&& translator.Assignable<UnityEngine.Vector3>(L, 3)&& translator.Assignable<UnityEngine.Quaternion>(L, 4)) 
-                {
-                    UnityEngine.Object _original = (UnityEngine.Object)translator.GetObject(L, 1, typeof(UnityEngine.Object));
-                    int _count = LuaAPI.xlua_tointeger(L, 2);
-                    UnityEngine.Vector3 _position;translator.Get(L, 3, out _position);
-                    UnityEngine.Quaternion _rotation;translator.Get(L, 4, out _rotation);
-                    
-                        var gen_ret = UnityEngine.Object.InstantiateAsync( _original, _count, _position, _rotation );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                if(gen_param_count == 4&& translator.Assignable<UnityEngine.Object>(L, 1)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 2)&& translator.Assignable<System.ReadOnlySpan<UnityEngine.Vector3>>(L, 3)&& translator.Assignable<System.ReadOnlySpan<UnityEngine.Quaternion>>(L, 4)) 
-                {
-                    UnityEngine.Object _original = (UnityEngine.Object)translator.GetObject(L, 1, typeof(UnityEngine.Object));
-                    int _count = LuaAPI.xlua_tointeger(L, 2);
-                    System.ReadOnlySpan<UnityEngine.Vector3> _positions;translator.Get(L, 3, out _positions);
-                    System.ReadOnlySpan<UnityEngine.Quaternion> _rotations;translator.Get(L, 4, out _rotations);
-                    
-                        var gen_ret = UnityEngine.Object.InstantiateAsync( _original, _count, _positions, _rotations );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                if(gen_param_count == 4&& translator.Assignable<UnityEngine.Object>(L, 1)&& translator.Assignable<UnityEngine.Transform>(L, 2)&& translator.Assignable<UnityEngine.Vector3>(L, 3)&& translator.Assignable<UnityEngine.Quaternion>(L, 4)) 
-                {
-                    UnityEngine.Object _original = (UnityEngine.Object)translator.GetObject(L, 1, typeof(UnityEngine.Object));
-                    UnityEngine.Transform _parent = (UnityEngine.Transform)translator.GetObject(L, 2, typeof(UnityEngine.Transform));
-                    UnityEngine.Vector3 _position;translator.Get(L, 3, out _position);
-                    UnityEngine.Quaternion _rotation;translator.Get(L, 4, out _rotation);
-                    
-                        var gen_ret = UnityEngine.Object.InstantiateAsync( _original, _parent, _position, _rotation );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                if(gen_param_count == 5&& translator.Assignable<UnityEngine.Object>(L, 1)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 2)&& translator.Assignable<UnityEngine.Transform>(L, 3)&& translator.Assignable<UnityEngine.Vector3>(L, 4)&& translator.Assignable<UnityEngine.Quaternion>(L, 5)) 
-                {
-                    UnityEngine.Object _original = (UnityEngine.Object)translator.GetObject(L, 1, typeof(UnityEngine.Object));
-                    int _count = LuaAPI.xlua_tointeger(L, 2);
-                    UnityEngine.Transform _parent = (UnityEngine.Transform)translator.GetObject(L, 3, typeof(UnityEngine.Transform));
-                    UnityEngine.Vector3 _position;translator.Get(L, 4, out _position);
-                    UnityEngine.Quaternion _rotation;translator.Get(L, 5, out _rotation);
-                    
-                        var gen_ret = UnityEngine.Object.InstantiateAsync( _original, _count, _parent, _position, _rotation );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                if(gen_param_count == 5&& translator.Assignable<UnityEngine.Object>(L, 1)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 2)&& translator.Assignable<UnityEngine.Transform>(L, 3)&& translator.Assignable<System.ReadOnlySpan<UnityEngine.Vector3>>(L, 4)&& translator.Assignable<System.ReadOnlySpan<UnityEngine.Quaternion>>(L, 5)) 
-                {
-                    UnityEngine.Object _original = (UnityEngine.Object)translator.GetObject(L, 1, typeof(UnityEngine.Object));
-                    int _count = LuaAPI.xlua_tointeger(L, 2);
-                    UnityEngine.Transform _parent = (UnityEngine.Transform)translator.GetObject(L, 3, typeof(UnityEngine.Transform));
-                    System.ReadOnlySpan<UnityEngine.Vector3> _positions;translator.Get(L, 4, out _positions);
-                    System.ReadOnlySpan<UnityEngine.Quaternion> _rotations;translator.Get(L, 5, out _rotations);
-                    
-                        var gen_ret = UnityEngine.Object.InstantiateAsync( _original, _count, _parent, _positions, _rotations );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            
-            return LuaAPI.luaL_error(L, "invalid arguments to UnityEngine.Object.InstantiateAsync!");
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Instantiate_xlua_st_(RealStatePtr L)
         {
 		    try {
@@ -381,18 +224,6 @@ namespace XLua.CSObjectWrap
                     UnityEngine.Object _original = (UnityEngine.Object)translator.GetObject(L, 1, typeof(UnityEngine.Object));
                     
                         var gen_ret = UnityEngine.Object.Instantiate( _original );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                if(gen_param_count == 2&& translator.Assignable<UnityEngine.Object>(L, 1)&& translator.Assignable<UnityEngine.SceneManagement.Scene>(L, 2)) 
-                {
-                    UnityEngine.Object _original = (UnityEngine.Object)translator.GetObject(L, 1, typeof(UnityEngine.Object));
-                    UnityEngine.SceneManagement.Scene _scene;translator.Get(L, 2, out _scene);
-                    
-                        var gen_ret = UnityEngine.Object.Instantiate( _original, _scene );
                         translator.Push(L, gen_ret);
                     
                     
@@ -603,9 +434,7 @@ namespace XLua.CSObjectWrap
             
             
             
-			    int gen_param_count = LuaAPI.lua_gettop(L);
-            
-                if(gen_param_count == 1&& translator.Assignable<System.Type>(L, 1)) 
+                
                 {
                     System.Type _type = (System.Type)translator.GetObject(L, 1, typeof(System.Type));
                     
@@ -616,69 +445,10 @@ namespace XLua.CSObjectWrap
                     
                     return 1;
                 }
-                if(gen_param_count == 2&& translator.Assignable<System.Type>(L, 1)&& LuaTypes.LUA_TBOOLEAN == LuaAPI.lua_type(L, 2)) 
-                {
-                    System.Type _type = (System.Type)translator.GetObject(L, 1, typeof(System.Type));
-                    bool _includeInactive = LuaAPI.lua_toboolean(L, 2);
-                    
-                        var gen_ret = UnityEngine.Object.FindObjectsOfType( _type, _includeInactive );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
                 
             } catch(System.Exception gen_e) {
                 return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
             }
-            
-            return LuaAPI.luaL_error(L, "invalid arguments to UnityEngine.Object.FindObjectsOfType!");
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_FindObjectsByType_xlua_st_(RealStatePtr L)
-        {
-		    try {
-            
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-            
-			    int gen_param_count = LuaAPI.lua_gettop(L);
-            
-                if(gen_param_count == 2&& translator.Assignable<System.Type>(L, 1)&& translator.Assignable<UnityEngine.FindObjectsSortMode>(L, 2)) 
-                {
-                    System.Type _type = (System.Type)translator.GetObject(L, 1, typeof(System.Type));
-                    UnityEngine.FindObjectsSortMode _sortMode;translator.Get(L, 2, out _sortMode);
-                    
-                        var gen_ret = UnityEngine.Object.FindObjectsByType( _type, _sortMode );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                if(gen_param_count == 3&& translator.Assignable<System.Type>(L, 1)&& translator.Assignable<UnityEngine.FindObjectsInactive>(L, 2)&& translator.Assignable<UnityEngine.FindObjectsSortMode>(L, 3)) 
-                {
-                    System.Type _type = (System.Type)translator.GetObject(L, 1, typeof(System.Type));
-                    UnityEngine.FindObjectsInactive _findObjectsInactive;translator.Get(L, 2, out _findObjectsInactive);
-                    UnityEngine.FindObjectsSortMode _sortMode;translator.Get(L, 3, out _sortMode);
-                    
-                        var gen_ret = UnityEngine.Object.FindObjectsByType( _type, _findObjectsInactive, _sortMode );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            
-            return LuaAPI.luaL_error(L, "invalid arguments to UnityEngine.Object.FindObjectsByType!");
             
         }
         
@@ -717,9 +487,7 @@ namespace XLua.CSObjectWrap
             
             
             
-			    int gen_param_count = LuaAPI.lua_gettop(L);
-            
-                if(gen_param_count == 1&& translator.Assignable<System.Type>(L, 1)) 
+                
                 {
                     System.Type _type = (System.Type)translator.GetObject(L, 1, typeof(System.Type));
                     
@@ -730,110 +498,10 @@ namespace XLua.CSObjectWrap
                     
                     return 1;
                 }
-                if(gen_param_count == 2&& translator.Assignable<System.Type>(L, 1)&& LuaTypes.LUA_TBOOLEAN == LuaAPI.lua_type(L, 2)) 
-                {
-                    System.Type _type = (System.Type)translator.GetObject(L, 1, typeof(System.Type));
-                    bool _includeInactive = LuaAPI.lua_toboolean(L, 2);
-                    
-                        var gen_ret = UnityEngine.Object.FindObjectOfType( _type, _includeInactive );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
                 
             } catch(System.Exception gen_e) {
                 return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
             }
-            
-            return LuaAPI.luaL_error(L, "invalid arguments to UnityEngine.Object.FindObjectOfType!");
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_FindFirstObjectByType_xlua_st_(RealStatePtr L)
-        {
-		    try {
-            
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-            
-			    int gen_param_count = LuaAPI.lua_gettop(L);
-            
-                if(gen_param_count == 1&& translator.Assignable<System.Type>(L, 1)) 
-                {
-                    System.Type _type = (System.Type)translator.GetObject(L, 1, typeof(System.Type));
-                    
-                        var gen_ret = UnityEngine.Object.FindFirstObjectByType( _type );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                if(gen_param_count == 2&& translator.Assignable<System.Type>(L, 1)&& translator.Assignable<UnityEngine.FindObjectsInactive>(L, 2)) 
-                {
-                    System.Type _type = (System.Type)translator.GetObject(L, 1, typeof(System.Type));
-                    UnityEngine.FindObjectsInactive _findObjectsInactive;translator.Get(L, 2, out _findObjectsInactive);
-                    
-                        var gen_ret = UnityEngine.Object.FindFirstObjectByType( _type, _findObjectsInactive );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            
-            return LuaAPI.luaL_error(L, "invalid arguments to UnityEngine.Object.FindFirstObjectByType!");
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_FindAnyObjectByType_xlua_st_(RealStatePtr L)
-        {
-		    try {
-            
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-            
-			    int gen_param_count = LuaAPI.lua_gettop(L);
-            
-                if(gen_param_count == 1&& translator.Assignable<System.Type>(L, 1)) 
-                {
-                    System.Type _type = (System.Type)translator.GetObject(L, 1, typeof(System.Type));
-                    
-                        var gen_ret = UnityEngine.Object.FindAnyObjectByType( _type );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                if(gen_param_count == 2&& translator.Assignable<System.Type>(L, 1)&& translator.Assignable<UnityEngine.FindObjectsInactive>(L, 2)) 
-                {
-                    System.Type _type = (System.Type)translator.GetObject(L, 1, typeof(System.Type));
-                    UnityEngine.FindObjectsInactive _findObjectsInactive;translator.Get(L, 2, out _findObjectsInactive);
-                    
-                        var gen_ret = UnityEngine.Object.FindAnyObjectByType( _type, _findObjectsInactive );
-                        translator.Push(L, gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            
-            return LuaAPI.luaL_error(L, "invalid arguments to UnityEngine.Object.FindAnyObjectByType!");
             
         }
         

@@ -21,28 +21,22 @@ namespace XLua.CSObjectWrap
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
 			System.Type type = typeof(UnityEngine.Renderer);
-			Utils.BeginObjectRegister(type, L, translator, 0, 10, 31, 27);
+			Utils.BeginObjectRegister(type, L, translator, 0, 6, 29, 24);
 			
-			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ResetBounds", _m_ResetBounds);
-			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ResetLocalBounds", _m_ResetLocalBounds);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "HasPropertyBlock", _m_HasPropertyBlock);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetPropertyBlock", _m_SetPropertyBlock);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetPropertyBlock", _m_GetPropertyBlock);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetMaterials", _m_GetMaterials);
-			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetSharedMaterials", _m_SetSharedMaterials);
-			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetMaterials", _m_SetMaterials);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetSharedMaterials", _m_GetSharedMaterials);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetClosestReflectionProbes", _m_GetClosestReflectionProbes);
 			
 			
 			Utils.RegisterFunc(L, Utils.GETTER_IDX, "bounds", _g_get_bounds);
-            Utils.RegisterFunc(L, Utils.GETTER_IDX, "localBounds", _g_get_localBounds);
             Utils.RegisterFunc(L, Utils.GETTER_IDX, "enabled", _g_get_enabled);
             Utils.RegisterFunc(L, Utils.GETTER_IDX, "isVisible", _g_get_isVisible);
             Utils.RegisterFunc(L, Utils.GETTER_IDX, "shadowCastingMode", _g_get_shadowCastingMode);
             Utils.RegisterFunc(L, Utils.GETTER_IDX, "receiveShadows", _g_get_receiveShadows);
             Utils.RegisterFunc(L, Utils.GETTER_IDX, "forceRenderingOff", _g_get_forceRenderingOff);
-            Utils.RegisterFunc(L, Utils.GETTER_IDX, "staticShadowCaster", _g_get_staticShadowCaster);
             Utils.RegisterFunc(L, Utils.GETTER_IDX, "motionVectorGenerationMode", _g_get_motionVectorGenerationMode);
             Utils.RegisterFunc(L, Utils.GETTER_IDX, "lightProbeUsage", _g_get_lightProbeUsage);
             Utils.RegisterFunc(L, Utils.GETTER_IDX, "reflectionProbeUsage", _g_get_reflectionProbeUsage);
@@ -67,13 +61,10 @@ namespace XLua.CSObjectWrap
             Utils.RegisterFunc(L, Utils.GETTER_IDX, "sharedMaterial", _g_get_sharedMaterial);
             Utils.RegisterFunc(L, Utils.GETTER_IDX, "sharedMaterials", _g_get_sharedMaterials);
             
-			Utils.RegisterFunc(L, Utils.SETTER_IDX, "bounds", _s_set_bounds);
-            Utils.RegisterFunc(L, Utils.SETTER_IDX, "localBounds", _s_set_localBounds);
-            Utils.RegisterFunc(L, Utils.SETTER_IDX, "enabled", _s_set_enabled);
+			Utils.RegisterFunc(L, Utils.SETTER_IDX, "enabled", _s_set_enabled);
             Utils.RegisterFunc(L, Utils.SETTER_IDX, "shadowCastingMode", _s_set_shadowCastingMode);
             Utils.RegisterFunc(L, Utils.SETTER_IDX, "receiveShadows", _s_set_receiveShadows);
             Utils.RegisterFunc(L, Utils.SETTER_IDX, "forceRenderingOff", _s_set_forceRenderingOff);
-            Utils.RegisterFunc(L, Utils.SETTER_IDX, "staticShadowCaster", _s_set_staticShadowCaster);
             Utils.RegisterFunc(L, Utils.SETTER_IDX, "motionVectorGenerationMode", _s_set_motionVectorGenerationMode);
             Utils.RegisterFunc(L, Utils.SETTER_IDX, "lightProbeUsage", _s_set_lightProbeUsage);
             Utils.RegisterFunc(L, Utils.SETTER_IDX, "reflectionProbeUsage", _s_set_reflectionProbeUsage);
@@ -138,60 +129,6 @@ namespace XLua.CSObjectWrap
         
         
         
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_ResetBounds(RealStatePtr L)
-        {
-		    try {
-            
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-                UnityEngine.Renderer gen_to_be_invoked = (UnityEngine.Renderer)translator.FastGetCSObj(L, 1);
-            
-            
-                
-                {
-                    
-                    gen_to_be_invoked.ResetBounds(  );
-                    
-                    
-                    
-                    return 0;
-                }
-                
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_ResetLocalBounds(RealStatePtr L)
-        {
-		    try {
-            
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-                UnityEngine.Renderer gen_to_be_invoked = (UnityEngine.Renderer)translator.FastGetCSObj(L, 1);
-            
-            
-                
-                {
-                    
-                    gen_to_be_invoked.ResetLocalBounds(  );
-                    
-                    
-                    
-                    return 0;
-                }
-                
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            
-        }
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_HasPropertyBlock(RealStatePtr L)
@@ -336,62 +273,6 @@ namespace XLua.CSObjectWrap
         }
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_SetSharedMaterials(RealStatePtr L)
-        {
-		    try {
-            
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-                UnityEngine.Renderer gen_to_be_invoked = (UnityEngine.Renderer)translator.FastGetCSObj(L, 1);
-            
-            
-                
-                {
-                    System.Collections.Generic.List<UnityEngine.Material> _materials = (System.Collections.Generic.List<UnityEngine.Material>)translator.GetObject(L, 2, typeof(System.Collections.Generic.List<UnityEngine.Material>));
-                    
-                    gen_to_be_invoked.SetSharedMaterials( _materials );
-                    
-                    
-                    
-                    return 0;
-                }
-                
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_SetMaterials(RealStatePtr L)
-        {
-		    try {
-            
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-                UnityEngine.Renderer gen_to_be_invoked = (UnityEngine.Renderer)translator.FastGetCSObj(L, 1);
-            
-            
-                
-                {
-                    System.Collections.Generic.List<UnityEngine.Material> _materials = (System.Collections.Generic.List<UnityEngine.Material>)translator.GetObject(L, 2, typeof(System.Collections.Generic.List<UnityEngine.Material>));
-                    
-                    gen_to_be_invoked.SetMaterials( _materials );
-                    
-                    
-                    
-                    return 0;
-                }
-                
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetSharedMaterials(RealStatePtr L)
         {
 		    try {
@@ -465,20 +346,6 @@ namespace XLua.CSObjectWrap
         }
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _g_get_localBounds(RealStatePtr L)
-        {
-		    try {
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-			
-                UnityEngine.Renderer gen_to_be_invoked = (UnityEngine.Renderer)translator.FastGetCSObj(L, 1);
-                translator.PushUnityEngineBounds(L, gen_to_be_invoked.localBounds);
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            return 1;
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _g_get_enabled(RealStatePtr L)
         {
 		    try {
@@ -542,20 +409,6 @@ namespace XLua.CSObjectWrap
 			
                 UnityEngine.Renderer gen_to_be_invoked = (UnityEngine.Renderer)translator.FastGetCSObj(L, 1);
                 LuaAPI.lua_pushboolean(L, gen_to_be_invoked.forceRenderingOff);
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            return 1;
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _g_get_staticShadowCaster(RealStatePtr L)
-        {
-		    try {
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-			
-                UnityEngine.Renderer gen_to_be_invoked = (UnityEngine.Renderer)translator.FastGetCSObj(L, 1);
-                LuaAPI.lua_pushboolean(L, gen_to_be_invoked.staticShadowCaster);
             } catch(System.Exception gen_e) {
                 return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
             }
@@ -887,38 +740,6 @@ namespace XLua.CSObjectWrap
         
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _s_set_bounds(RealStatePtr L)
-        {
-		    try {
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-			
-                UnityEngine.Renderer gen_to_be_invoked = (UnityEngine.Renderer)translator.FastGetCSObj(L, 1);
-                UnityEngine.Bounds gen_value;translator.Get(L, 2, out gen_value);
-				gen_to_be_invoked.bounds = gen_value;
-            
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            return 0;
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _s_set_localBounds(RealStatePtr L)
-        {
-		    try {
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-			
-                UnityEngine.Renderer gen_to_be_invoked = (UnityEngine.Renderer)translator.FastGetCSObj(L, 1);
-                UnityEngine.Bounds gen_value;translator.Get(L, 2, out gen_value);
-				gen_to_be_invoked.localBounds = gen_value;
-            
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            return 0;
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _s_set_enabled(RealStatePtr L)
         {
 		    try {
@@ -972,21 +793,6 @@ namespace XLua.CSObjectWrap
 			
                 UnityEngine.Renderer gen_to_be_invoked = (UnityEngine.Renderer)translator.FastGetCSObj(L, 1);
                 gen_to_be_invoked.forceRenderingOff = LuaAPI.lua_toboolean(L, 2);
-            
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            return 0;
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _s_set_staticShadowCaster(RealStatePtr L)
-        {
-		    try {
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-			
-                UnityEngine.Renderer gen_to_be_invoked = (UnityEngine.Renderer)translator.FastGetCSObj(L, 1);
-                gen_to_be_invoked.staticShadowCaster = LuaAPI.lua_toboolean(L, 2);
             
             } catch(System.Exception gen_e) {
                 return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
